@@ -26,7 +26,6 @@ public class CrudInfoSys {
 	private JTextField textFamilyName;
 	private JTextField textDoB;
 	private JTextField textSSN;
-	private JTextField textNationality;
 	private JTextField textCurrentAddress;
 	private JTable table;
 
@@ -114,15 +113,15 @@ public class CrudInfoSys {
 		lblNewLabel_2_1.setBounds(10, 89, 68, 20);
 		panel.add(lblNewLabel_2_1);
 
-		JComboBox comboBox_Suffix = new JComboBox();
-		comboBox_Suffix.setModel(new DefaultComboBoxModel(new String[] { "None.", "Jr.", "Sr." }));
-		comboBox_Suffix.setBounds(90, 89, 146, 22);
-		panel.add(comboBox_Suffix);
+		JComboBox boxSuffix = new JComboBox();
+		boxSuffix.setModel(new DefaultComboBoxModel(new String[] { "None.", "Jr.", "Sr." }));
+		boxSuffix.setBounds(90, 89, 146, 22);
+		panel.add(boxSuffix);
 
-		JComboBox comboBox_Gender = new JComboBox();
-		comboBox_Gender.setModel(new DefaultComboBoxModel(new String[] { "None.", "MALE", "FEMALE" }));
-		comboBox_Gender.setBounds(342, 9, 185, 22);
-		panel.add(comboBox_Gender);
+		JComboBox boxGender = new JComboBox();
+		boxGender.setModel(new DefaultComboBoxModel(new String[] { "None.", "MALE", "FEMALE" }));
+		boxGender.setBounds(342, 9, 185, 22);
+		panel.add(boxGender);
 
 		textDoB = new JTextField();
 		textDoB.setBounds(342, 37, 185, 20);
@@ -144,11 +143,6 @@ public class CrudInfoSys {
 		textSSN.setBounds(342, 60, 185, 20);
 		panel.add(textSSN);
 
-		textNationality = new JTextField();
-		textNationality.setColumns(10);
-		textNationality.setBounds(342, 90, 185, 20);
-		panel.add(textNationality);
-
 		JLabel lblNewLabel_2_1_1 = new JLabel("Current Address");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_2_1_1.setBounds(10, 120, 226, 20);
@@ -167,12 +161,17 @@ public class CrudInfoSys {
 				textFamilyName.setText(null);
 				textDoB.setText(null);
 				textSSN.setText(null);
-				textNationality.setText(null);
 				textCurrentAddress.setText(null);
 			}
 		});
 		btnClear.setBounds(457, 220, 89, 23);
 		panel.add(btnClear);
+		
+		JComboBox boxNatl = new JComboBox();
+		boxNatl.setModel(new DefaultComboBoxModel(new String[] {"Afghan", "Albanian", "Algerian", "American", "Andorran", "Angolan", "Antiguans", "Argentinean", "Armenian", "Australian", "Austrian", "Azerbaijani", "Bahamian", "Bahraini", "Bangladeshi", "Barbadian", "Barbudans", "Batswana", "Belarusian", "Belgian", "Belizean", "Beninese", "Bhutanese", "Bolivian", "Bosnian", "Brazilian", "British", "Bruneian", "Bulgarian", "Burkinabe", "Burmese", "Burundian", "Cambodian", "Cameroonian", "Canadian", "Cape Verdean", "Central African", "Chadian", "Chilean", "Chinese", "Colombian", "Comoran", "Congolese", "Costa Rican", "Croatian", "Cuban", "Cypriot", "Czech", "Danish", "Djibouti", "Dominican", "Dutch", "East Timorese", "Ecuadorean", "Egyptian", "Emirian", "Equatorial Guinean", "Eritrean", "Estonian", "Ethiopian", "Fijian", "Filipino", "Finnish", "French", "Gabonese", "Gambian", "Georgian", "German", "Ghanaian", "Greek", "Grenadian", "Guatemalan", "Guinea-Bissauan", "Guinean", "Guyanese", "Haitian", "Herzegovinian", "Honduran", "Hungarian", "I-Kiribati", "Icelander", "Indian", "Indonesian", "Iranian", "Iraqi", "Irish", "Israeli", "Italian", "Ivorian", "Jamaican", "Japanese", "Jordanian", "Kazakhstani", "Kenyan", "Kittian and Nevisian", "Kuwaiti", "Kyrgyz", "Laotian", "Latvian", "Lebanese", "Liberian", "Libyan", "Liechtensteiner", "Lithuanian", "Luxembourger", "Macedonian", "Malagasy", "Malawian", "Malaysian", "Maldivian", "Malian", "Maltese", "Marshallese", "Mauritanian", "Mauritian", "Mexican", "Micronesian", "Moldovan", "Monacan", "Mongolian", "Moroccan", "Mosotho", "Motswana", "Mozambican", "Namibian", "Nauruan", "Nepalese", "New Zealander", "Ni-Vanuatu", "Nicaraguan", "Nigerian", "Nigerien", "North Korean", "Northern Irish", "Norwegian", "Omani", "Pakistani", "Palauan", "Panamanian", "Papua New Guinean", "Paraguayan", "Peruvian", "Polish", "Portuguese", "Qatari", "Romanian", "Russian", "Rwandan", "Saint Lucian", "Salvadoran", "Samoan", "San Marinese", "Sao Tomean", "Saudi", "Scottish", "Senegalese", "Serbian", "Seychellois", "Sierra Leonean", "Singaporean", "Slovakian", "Slovenian", "Solomon Islander", "Somali", "South African", "South Korean", "Spanish", "Sri Lankan", "Sudanese", "Surinamer", "Swazi", "Swedish", "Swiss", "Syrian", "Taiwanese", "Tajik", "Tanzanian", "Thai", "Togolese", "Tongan", "Trinidadian or Tobagonian", "Tunisian", "Turkish", "Tuvaluan", "Ugandan", "Ukrainian", "Uruguayan", "Uzbekistani", "Venezuelan", "Vietnamese", "Welsh", "Yemenite", "Zambian", "Zimbabwean"}));
+		boxNatl.setMaximumRowCount(194);
+		boxNatl.setBounds(342, 89, 185, 22);
+		panel.add(boxNatl);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -180,9 +179,13 @@ public class CrudInfoSys {
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
-		JButton btnFind = new JButton("Find");
-		btnFind.setBounds(10, 11, 125, 23);
-		panel_1.add(btnFind);
+		JButton btnView = new JButton("View");
+		btnView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnView.setBounds(10, 11, 125, 23);
+		panel_1.add(btnView);
 
 		JButton btnCreate = new JButton("Create");
 		btnCreate.addActionListener(new ActionListener() {
@@ -193,9 +196,12 @@ public class CrudInfoSys {
 				fName = textFirstName.getText();
 				mName = textMiddleName.getText();
 				fmName = textFamilyName.getText();
+				dateOfBirth = textDoB.getText();
 				SocialSecurityNumber = textSSN.getText();
-				Nationality = textNationality.getText();
 				CurrentAddress = textCurrentAddress.getText();
+				Nationality = (String) boxNatl.getSelectedItem();
+				gender = (String) boxGender.getSelectedItem();
+				sfx = (String) boxSuffix.getSelectedItem();
 			}
 		});
 		btnCreate.setBounds(145, 11, 127, 23);
@@ -206,6 +212,10 @@ public class CrudInfoSys {
 		panel_1.add(btnUpdate);
 
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnDelete.setBounds(419, 11, 127, 23);
 		panel_1.add(btnDelete);
 
